@@ -1,0 +1,223 @@
+.wifi_panel {
+    max-height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-color: yellow; */
+}
+
+.wifi_panel>.wifi_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    /* background: linear-gradient( 135deg, rgba(110, 172, 134, 0.294), rgba(112, 167, 107, 0.87)); */
+    /* overflow-y: scroll; */
+}
+
+.wifi_content>.carousel-inner {
+    margin-top: 5%;
+}
+
+.wifi_title {
+    text-align: center;
+}
+
+
+/******** files div *********/
+
+#files_div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 25px 0 0 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 50%;
+    text-align: left;
+}
+
+#file_msg {
+    width: 80%;
+}
+
+
+
+#files_div>h5 {
+    font: 800 clamp(1rem, 1.5vw, 2rem) / 1.1 Open Sans;
+    margin-left: 20px;
+}
+
+
+#file_msg2{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+}
+
+#file_msg2 > button{
+    border: none;
+    background-color: white;
+    margin-bottom: 5px;
+}
+
+#file_msg2 > img{
+    width: 20px;
+    height: 20px;
+}
+
+
+
+/******** table *********/
+
+#tableFiles {
+    width: 80%;
+    margin: 10px;
+    box-shadow: 0 5px 30px rgb(6, 109, 69);
+    border-spacing: 0;
+    border: 0.5px solid #71998a;
+    text-align: center;
+}
+
+#tableFiles thead {
+    width: 100%;
+    text-align: center;
+    background-color: rgb(13, 112, 20);
+}
+
+#tableFiles thead th {
+    font-weight: bold;
+}
+
+#tableFiles tr td {
+    cursor: pointer;
+}
+
+#tableFiles tr td:first-child {
+    font-weight: bold;
+}
+
+#tableFiles tr td:last-child {
+    width: 92%;
+    text-align: left;
+    padding-left: 15px;
+}
+
+#tableFiles tr:hover td {
+    background-color: rgb(169, 190, 169);
+}
+
+#tableFiles tr.selecionado td {
+    background-color: rgb(96, 129, 98);
+}
+
+tbody,
+thead tr {
+    display: block;
+    width: 100%;
+    border: 0.5px solid #71998a;
+}
+
+tbody {
+    width: 100%;
+    height: 190px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+tr>th:first-child,
+tr>td:first-child {
+    width: 50px;
+}
+
+tr>th:last-child,
+tr>td:last-child {
+    width: 150px;
+}
+
+#wifi_prev_button,
+#wifi_next_button {
+    width: 40%;
+    height: 35px;
+    margin: 20px 5px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background: linear-gradient( 135deg, rgba(110, 172, 134, 0.294), rgba(112, 167, 107, 0.87));
+    transform: scale(1);
+    transition: 0.9s;
+}
+
+#wifi_prev_button:hover,
+#wifi_next_button:hover {
+    transform: scale(1.05);
+    transition: 0.4s;
+}
+
+.wifi_buttons_ctrl {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.wifi_pswd {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+#error_message{
+	display:none;
+}
+
+#files_div img {
+    width: 200px;
+    height: 200px;
+}
+
+.btn-choice{   
+    font-weight: bold;       
+    color: white;
+    background: linear-gradient( 135deg, rgba(110, 172, 134, 0.294), rgba(112, 167, 107, 0.87));    
+}
+
+
+
+input.checkbox {
+    display: inline-block;
+    width: 20px;
+	height: 20px;
+}
+
+@media screen and (max-width: 570px) {
+    .logo_panel {
+        display: none;
+    }
+    .wifi_panel {
+        width: 100%;
+    }
+}
+
+.div_showip{
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+	align-items: center;
+	width:80%;
+}
+.show_ip{
+	margin-top: 20px;
+}

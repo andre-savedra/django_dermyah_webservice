@@ -1,0 +1,165 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<main class="login">
+    <form id="myform" class="wifi_panel animation-up" action="{% url 'connect' %}" method="POST">
+        {% csrf_token %}
+        <div id="carouselContent" class="wifi_content carousel slide" data-interval="false">
+
+            <div class="carousel-inner wifi_inner">
+                <div class="carousel-item active">
+                    <div class="wifi_title">
+                        <h2>Configure seu Wifi</h2>
+                        <p>
+                            <a data-toggle="collapse" href="#collapseWarning" role="button" aria-expanded="false" aria-controls="collapseWarning">
+                              Resetar rede?
+                            </a>                            
+                        </p>
+                        <div class="collapse" id="collapseWarning">
+                            <div class="card card-body">
+                              Deseja resetar o wifi para o padrão de Fábrica? (Rede Local)
+                              <div>
+                                <button class="btn-choice btn btn-secondary" type="button" onclick="restoreWifi()">Sim</button>
+                                <button class="btn-choice btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapseWarning" aria-expanded="false" aria-controls="collapseExample" >Não</button>
+                              </div>
+                            </div>
+                        </div>
+                        
+                        <p>
+                            <a data-toggle="collapse" href="#collapseArduino" role="button" aria-expanded="false" aria-controls="collapseWarning">
+                              Programar Arduino?
+                            </a>                            
+                        </p>
+                        <div class="collapse" id="collapseArduino">
+                            <div class="card card-body">
+                              Arduino:  <strong>{{serial}}</strong>
+                              <div>
+                                <button class="btn-choice btn btn-secondary" type="button" onclick="load()">Sim</button>
+                                <button class="btn-choice btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapseArduino" aria-expanded="false" aria-controls="collapseExample" >Não</button>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="files_div">
+                        <div id="file_msg2">
+                            <h5>1- Encontre sua Rede:</h5>                            
+                            <button >
+                                <img src="{% static 'images/search.svg' %}" alt="" style="width:20px; height:20px" >
+                            </button>                                                       
+                        </div>
+                        
+                        <table id="tableFiles">
+                            <thead>
+                                <tr>
+                                    <th id="Id">ID</th>
+                                    <th id="Name">Nome</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {%for chave, nome_da_rede in nome_das_redes.items %}
+                                <tr>
+                                    <td>{{chave}}</td>
+                                    <td class="nameNetLine">{{nome_da_rede}}</td>
+                                </tr>
+                                
+                                {%endfor%}
+                            </tbody>
+                        </table>
+
+                        <div class="wifi_buttons_ctrl">
+
+                            <button id="wifi_next_button" href="#carouselContent" role="button" data-slide="next">
+                                Próximo
+                            </button>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="carousel-item">
+                    <div class="wifi_title">
+                        <h2>Configure seu Wifi</h2>
+                    </div>
+                    <div id="files_div">
+                        <div id="file_msg">
+                            <h5>2- Digite a Senha:</h5>
+                        </div>
+                        <div class="wifi_pswd">
+                            <div class="form_content">
+                                <label for="netChoose">Rede Selecionada</label>
+                                <input  name="net_ssid" type="text" class="login_input" id="netChoose" placeholder="Rede" style="background-color: rgba(110, 172, 134, 0.294);">
+                            </div>
+                            <div class="form_content">
+                                <label for="pass">Senha</label>
+                                <input oninput="check()" name="pswd_ssid" type="password" class="login_input pswd1" id="pass" placeholder="Senha min. 8 caracteres" >
+                            </div>
+                            <div class="form_content">
+                                <label for="pass">Confirme a Senha</label>
+                                <input oninput="check()" name="pswd_ssid2" type="password" class="login_input pswd2" id="pass" placeholder="Senha min. 8 caracteres">
+                            </div>
+                                                       
+                            <div id="error_message">
+								<p>Senhas diferentes ou menores que 8 caracteres!</p>
+                            </div>
+                                              
+                            
+                            <div class="mb-3 form-check">
+								<input name="ip_fixed" type="checkbox" class="form-check-input" id="fixIP">
+								<label class="form-check-label" for="fixIP">Fixar o IP?</label>
+							</div>
+                        </div>
+                        
+
+                        <div class="wifi_buttons_ctrl">
+                            <button id="wifi_prev_button" href="#carouselContent" role="button" data-slide="prev">
+                                Voltar
+                            </button>
+                            <button class="final_button" id="wifi_next_button" href="#carouselContent" role="button" data-slide="next" disabled>
+                                Próximo
+                            </button>                            
+                            
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="carousel-item">
+                    <div class="wifi_title">
+                        <h2>Configure seu Wifi</h2>
+                    </div>
+                    <div id="files_div">
+                        <div id="file_msg">
+                            <h5>3- Reinicie sua máquina!:</h5>
+                        </div>
+                        <img id="wifi_machine" src="{% static 'images/panel0.jpg' %}" alt="">
+
+
+                        <div class="wifi_buttons_ctrl">
+                            <button id="wifi_prev_button" href="#carouselContent" role="button" data-slide="prev">
+                                Voltar
+                            </button>
+                            <button id="wifi_next_button" type="submit" >
+                                Conectar
+                            </button>
+                            
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </form>
+	
+    <section class="logo_panel">
+
+    </section>
+</main>
+
+{% endblock %}

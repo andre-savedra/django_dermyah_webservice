@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta description="Página de Login Dermyah Service">
+    <link rel='stylesheet' href="{% static 'css/imports.css' %}">
+    <!-- Importação Plugin Bootstrap -->
+    <link rel="stylesheet" href="{% static 'plugin/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/icon.png'%}" type="image/x-icon">
+    <title>Dermyah Service</title>
+</head>
+
+
+
+<body>
+
+    {% block content %} {% endblock %}
+
+</body>
+<!-- Importando o script do bootstrap -->
+<script src="{% static 'plugin/bootstrap/js/jquery.slim.min.js'%}"></script>
+<script src="{% static 'plugin/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+
+<script src="{% static 'js/script.js'%}"></script>
+
+</html>
